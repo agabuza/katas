@@ -2,8 +2,8 @@
 {
     public struct Score
     {
-        private readonly Points receiver;
-        private readonly Points server;
+        private Points receiver;
+        private Points server;
 
         public Score(Points server, Points receiver)
         {

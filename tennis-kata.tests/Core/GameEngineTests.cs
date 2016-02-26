@@ -4,6 +4,7 @@ using GalaSoft.MvvmLight.Messaging;
 using tennis_kata.core.Messages;
 using tennis_kata.core.Model;
 using System;
+using System.Reflection;
 
 namespace tennis_kata.tests.Core
 {
@@ -27,11 +28,19 @@ namespace tennis_kata.tests.Core
         }
 
         [Test]
-        public void Whether_GameEngine_IncrementsScore_On_ScoreChangedMessage()
+        public void Whether_GameEngine_IncrementsServerScore_On_ScoreChangedMessage()
         {
             this.messenger.Send(new ScoreChangedMessage(true));
 
             Assert.That(this.gameEngine.Score.Equals(new Score(Points._15, Points._0)));
+        }
+
+        [Test]
+        public void Whether_GameEngine_IncrementsReceiverScore_On_ScoreChangedMessage()
+        {
+            this.messenger.Send(new ScoreChangedMessage(false));
+
+            Assert.That(this.gameEngine.Score.Equals(new Score(Points._0, Points._15)));
         }
 
         [TestCase(Points._40, Points._30, true)]
@@ -53,13 +62,34 @@ namespace tennis_kata.tests.Core
         }
 
         [Test]
-        public void Whether_GameEngine_DeducesScore_On_ScoreChangedMessage()
+        public void Whether_GameEngine_DeducesServerScore_On_ScoreChangedMessage()
         {
             this.gameEngine.Score = new Score(Points._A, Points._40);
 
             this.messenger.Send(new ScoreChangedMessage(false));
 
             Assert.That(this.gameEngine.Score.Equals(new Score(Points._40, Points._40)));
+        }
+
+        [Test]
+        public void Whether_GameEngine_DeducesReceiverScore_On_ScoreChangedMessage()
+        {
+            this.gameEngine.Score = new Score(Points._40, Points._A);
+
+            this.messenger.Send(new ScoreChangedMessage(true));
+
+            Assert.That(this.gameEngine.Score.Equals(new Score(Points._40, Points._40)));
+        }
+
+        [Test]
+        public void Whether_GameEngine_ThrowsException_On_MessageAfterGameFinished()
+        {            
+            this.gameEngine.Score = new Score(Points._A, Points._40);
+
+            this.messenger.Send(new ScoreChangedMessage(true));
+
+            var ex = Assert.Throws<TargetInvocationException>(() => this.messenger.Send(new ScoreChangedMessage(false)));
+            Assert.That(ex.InnerException is ApplicationException);
         }
     }
 }
