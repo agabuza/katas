@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GalaSoft.MvvmLight.Messaging;
-using tennis_kata.core.IO;
 using tennis_kata.core.Model;
 using tennis_kata.core.Messages;
 
@@ -13,18 +8,28 @@ namespace tennis_kata.core
     public class GameEngine
     {
         private IMessenger messenger;
-        private bool gameFinished;
+        private bool isGameFinished;
 
         public GameEngine(IMessenger messenger)
         {
             this.messenger = messenger;
             this.messenger.Register<ScoreChangedMessage>(this, this.OnScoreChanged);
-            this.messenger.Register<GameFinishedMessage>(this, (msg) => this.gameFinished = true);
+            this.messenger.Register<GameFinishedMessage>(this, (msg) => this.isGameFinished = true);
+        }
+
+        public Score Score { get; internal set; }
+
+        public bool IsGameFinished
+        {
+            get
+            {
+                return isGameFinished;
+            }
         }
 
         private void OnScoreChanged(ScoreChangedMessage msg)
         {
-            if (this.gameFinished)
+            if (this.IsGameFinished)
             {
                 throw new ApplicationException("All bets are off!!");
             }            
@@ -58,8 +63,6 @@ namespace tennis_kata.core
         {
             return Math.Abs(this.Score.Receiver - this.Score.Server) >= 2
                 && (this.Score.Receiver >= Points._40 || this.Score.Server >= Points._40);
-        }
-
-        public Score Score { get; internal set; }
+        }        
     }
 }

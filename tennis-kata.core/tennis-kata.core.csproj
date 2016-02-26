@@ -61,9 +61,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameEngine.cs" />
-    <Compile Include="IO\IInput.cs" />
     <Compile Include="Messages\GameFinishedMessage.cs" />
     <Compile Include="Messages\ScoreChangedMessage.cs" />
+    <Compile Include="Model\PointExtensions.cs" />
     <Compile Include="Model\Points.cs" />
     <Compile Include="Model\Score.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

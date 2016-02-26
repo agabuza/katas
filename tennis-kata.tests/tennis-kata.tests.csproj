@@ -75,15 +75,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\GameEngineTests.cs" />
+    <Compile Include="Model\ScoreTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\tennis-kata.core\tennis-kata.core.csproj">
       <Project>{35aa5137-2d08-4600-8898-f8414262f8b9}</Project>

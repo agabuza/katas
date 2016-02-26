@@ -26,5 +26,10 @@
                 return server;
             }
         }
+
+        public override string ToString()
+        {
+            return $"{Server.GetPointString()}:{Receiver.GetPointString()}";
+        }
     }
 }
