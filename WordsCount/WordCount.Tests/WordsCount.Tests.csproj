@@ -51,13 +51,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WordsCount\WordsCount.csproj">
-      <Project>{d4ea423d-2295-42f3-8312-b5d1a6f275ca}</Project>
-      <Name>WordsCount</Name>
-    </ProjectReference>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+    <ProjectReference Include="..\WordsCount.Core\WordsCount.Core.csproj">
+      <Project>{237ff775-952c-4221-a7df-6ac740d391a4}</Project>
+      <Name>WordsCount.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
