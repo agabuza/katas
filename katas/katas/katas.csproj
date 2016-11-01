@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DecimalToFactorial\Dec2Fact.cs" />
+    <Compile Include="DecimalToFactorial\Dec2FactTests.cs" />
     <Compile Include="Scramblies\ScrambliesTests.cs" />
     <Compile Include="Scramblies\Scramblies.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
