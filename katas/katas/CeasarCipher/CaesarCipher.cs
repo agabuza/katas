@@ -36,8 +36,8 @@ namespace katas.CeasarCipher
             var codedStr = strBuilder.ToString().Split(" ".ToArray(), StringSplitOptions.RemoveEmptyEntries);
             var batchSize = codedStr.Length / 4;
             var result = codedStr
-                .Select((value, index) => new {value, index})
-                .GroupBy(w => w.index/batchSize)
+                .Select((value, index) => new { value, index })
+                .GroupBy(w => w.index / batchSize)
                 .Select(x => x.ToList()).ToList();
 
             if (result.Count > 4 && result[4].Any())
@@ -56,8 +56,30 @@ namespace katas.CeasarCipher
 
         public static string demovingShift(List<string> s, int shift)
         {
-            var res = movingShift( string.Join(" ",s), 26 + shift);
-            return string.Join(" ", res).Trim();
+            var str = string.Join(" ", s).Trim();
+            var alpha = "abcdefghijklmnopqrstuvwxyz";
+            var alphaDict = alpha
+                .Select((value, index) => new { value, index })
+                .ToDictionary(x => x.value, x => x.index);
+
+            var strBuilder = new StringBuilder();
+            var lowerS = str.ToLower();
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (char.IsLetter(lowerS[i]))
+                {
+                    var index = alphaDict[lowerS[i]] - (i + shift) % 26;
+                    index = index < 0 ? 26 + index : index; // -*- = +; negative values should be converted
+                    var shiftedValue = alpha[index].ToString();
+                    strBuilder.Append(char.IsUpper(str[i]) ? shiftedValue.ToUpper() : shiftedValue.ToLower());
+                }
+                else
+                {
+                    strBuilder.Append(str[i]);
+                }
+            }
+
+            return strBuilder.ToString();
         }
     }
 }

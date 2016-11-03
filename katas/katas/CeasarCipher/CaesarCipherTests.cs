@@ -19,7 +19,7 @@ namespace katas.CeasarCipher
                 "lvz wp!!!"
             };
             Assert.AreEqual(caesarCode, CaesarCipher.movingShift(u,1));
-            Assert.AreEqual(caesarCode, CaesarCipher.demovingShift(caesarCode, 1));
+            Assert.AreEqual(u, CaesarCipher.demovingShift(caesarCode, 1));
             Assert.AreEqual(u, CaesarCipher.demovingShift(CaesarCipher.movingShift(u, 1), 1));
         }        
     }
