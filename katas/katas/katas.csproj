@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CeasarCipher\CaesarCipherTests.cs" />
+    <Compile Include="CeasarCipher\CaesarCipher.cs" />
     <Compile Include="DecimalToFactorial\Dec2Fact.cs" />
     <Compile Include="DecimalToFactorial\Dec2FactTests.cs" />
     <Compile Include="Scramblies\ScrambliesTests.cs" />
