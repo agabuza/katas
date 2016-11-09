@@ -21,6 +21,13 @@ namespace katas.CeasarCipher
             Assert.AreEqual(caesarCode, CaesarCipher.movingShift(u,1));
             Assert.AreEqual(u, CaesarCipher.demovingShift(caesarCode, 1));
             Assert.AreEqual(u, CaesarCipher.demovingShift(CaesarCipher.movingShift(u, 1), 1));
+        }
+
+        [Test]
+        public void DecryptionTest()
+        {
+            var str = "... tread, Walk the deck my Captain lies, Fallen cold and dead. ";
+
         }        
     }
 }

@@ -24,7 +24,8 @@ namespace katas.CeasarCipher
             {
                 if (char.IsLetter(lowerS[i]))
                 {
-                    var shiftedValue = alpha[(alphaDict[lowerS[i]] + i + shift) % 26].ToString();
+                    var index = (alphaDict[lowerS[i]] + i + shift)%26;
+                    var shiftedValue = alpha[index].ToString();
                     strBuilder.Append(char.IsUpper(s[i]) ? shiftedValue.ToUpper() : shiftedValue.ToLower());
                 }
                 else
@@ -38,7 +39,8 @@ namespace katas.CeasarCipher
             var result = codedStr
                 .Select((value, index) => new { value, index })
                 .GroupBy(w => w.index / batchSize)
-                .Select(x => x.ToList()).ToList();
+                .Select(x => x.ToList())
+                .ToList();
 
             if (result.Count > 4 && result[4].Any())
             {
