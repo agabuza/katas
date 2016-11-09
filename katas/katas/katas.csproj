@@ -55,6 +55,8 @@
     <Compile Include="SumStrings\Test.cs" />
     <Compile Include="TimeFormat\TimeFormat.cs" />
     <Compile Include="TimeFormat\HumanReadableTimeTest.cs" />
+    <Compile Include="UnknownDigit\RunesTest.cs" />
+    <Compile Include="UnknownDigit\Runes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
