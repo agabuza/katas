@@ -51,6 +51,8 @@
     <Compile Include="Scramblies\ScrambliesTests.cs" />
     <Compile Include="Scramblies\Scramblies.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringsMix\Mixing.cs" />
+    <Compile Include="StringsMix\MixingTests.cs" />
     <Compile Include="SumStrings\Kata.cs" />
     <Compile Include="SumStrings\Test.cs" />
     <Compile Include="TimeFormat\TimeFormat.cs" />
