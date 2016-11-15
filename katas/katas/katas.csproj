@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CarMileageNumbers\Test.cs" />
+    <Compile Include="CarMileageNumbers\Kata.cs" />
     <Compile Include="CeasarCipher\CaesarCipherTests.cs" />
     <Compile Include="CeasarCipher\CaesarCipher.cs" />
     <Compile Include="DecimalToFactorial\Dec2Fact.cs" />

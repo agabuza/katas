@@ -10,26 +10,35 @@ namespace katas.StringsMix
     {
         public static string Mix(string s1, string s2)
         {
-            var g1 = s1.Where(char.IsLower).GroupBy(x => x).Select(x => new { Value = x.Key, Count = x.Count(), Number = 1 });
-            var g2 = s2.Where(char.IsLower).GroupBy(x => x).Select(x => new { Value = x.Key, Count = x.Count(), Number = 2 });
+        var g1 = s1.Where(char.IsLower)
+            .GroupBy(x => x)
+            .Select(x => new { Value = x.Key, Count = x.Count(), Number = 1 });
+        var g2 = s2.Where(char.IsLower)
+            .GroupBy(x => x)
+            .Select(x => new {Value = x.Key, Count = x.Count(), Number = 2});
 
-            var merged = g1.Join(g2,
-                x => x.Value,
-                y => y.Value,
-                (x, y) => new
+        var merged = g1.Union(g2)
+            .GroupBy(x => x.Value)
+            .Select(
+            x =>
+            {
+                var maxCount = x.Max(c => c.Count);
+                var number = x.All(c => c.Count == maxCount) && x.Count() > 1
+                    ? "3"
+                    : x.FirstOrDefault(c => c.Count == maxCount).Number.ToString();
+                return new
                 {
-                    Count = x.Count > y.Count ? x.Count : y.Count,
-                    Number = x.Count == y.Count ? "3" : x.Count > y.Count ? x.Number.ToString() : y.Number.ToString(),
-                    x.Value
-                })
-                .Where(x => x.Count > 1)
-                .OrderByDescending(x => x.Count)
-                .ThenBy(x => x.Number)
-                .ThenBy(x => x.Value);
+                    Value = x.Key,
+                    Number = number,
+                    Count = maxCount
+                };
+            })
+            .Where(x => x.Count > 1)
+            .OrderByDescending(x => x.Count)
+            .ThenBy(x => x.Number)
+            .ThenBy(x => x.Value);
 
-            var result = string.Join("/", merged.Select(x => $"{(x.Number == "3" ? "=" : x.Number)}:{new string(x.Value, x.Count)}"));
-
-            return result;
+        return string.Join("/", merged.Select(x => $"{(x.Number == "3" ? "=" : x.Number)}:{new string(x.Value, x.Count)}"));
         }
     }
 }
