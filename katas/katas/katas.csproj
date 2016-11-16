@@ -50,6 +50,8 @@
     <Compile Include="CeasarCipher\CaesarCipher.cs" />
     <Compile Include="DecimalToFactorial\Dec2Fact.cs" />
     <Compile Include="DecimalToFactorial\Dec2FactTests.cs" />
+    <Compile Include="NextBiggerNumber\NextBiggerNumberTests.cs" />
+    <Compile Include="NextBiggerNumber\Kata.cs" />
     <Compile Include="PascalTriangle\PascalsTriangleTests.cs" />
     <Compile Include="PascalTriangle\Kata.cs" />
     <Compile Include="Scramblies\ScrambliesTests.cs" />
