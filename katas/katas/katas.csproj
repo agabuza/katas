@@ -48,6 +48,8 @@
     <Compile Include="CarMileageNumbers\Kata.cs" />
     <Compile Include="CeasarCipher\CaesarCipherTests.cs" />
     <Compile Include="CeasarCipher\CaesarCipher.cs" />
+    <Compile Include="ConnectFour\MyTestConnectFour.cs" />
+    <Compile Include="ConnectFour\ConnectFour.cs" />
     <Compile Include="DecimalToFactorial\Dec2Fact.cs" />
     <Compile Include="DecimalToFactorial\Dec2FactTests.cs" />
     <Compile Include="NextBiggerNumber\NextBiggerNumberTests.cs" />
