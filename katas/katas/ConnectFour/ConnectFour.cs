@@ -24,7 +24,8 @@ namespace katas.ConnectFour
         public static string WhoIsWinner(List<string> piecesPositionList)
         {
             var longestSeq = 0;
-            string currColor;            
+
+            var winCollections = new List<List<Tuple<int, string>>>();
 
             var field = piecesPositionList
                 .Select((x, i) => new
@@ -48,6 +49,35 @@ namespace katas.ConnectFour
                     })
                         .GroupBy(gr => gr.yPosition)
                         .ToDictionary(grx => grx.Key, gry => gry.FirstOrDefault()));
+            var currColor = string.Empty;
+            var currWinCollection = new Queue<Tuple<int, string>>();
+
+            var verify = new Func<int, int, Queue<Tuple<int, string>>, List<Tuple<int, string>>>((x, y, collection) =>
+            {
+                if (field.ContainsKey(x) && field[x].ContainsKey(y))
+                {
+                    if (currColor != field[x][y].Color)
+                    {
+                        currColor = field[x][y].Color;
+                        collection.Clear();
+                    }
+
+                    collection.Enqueue(new Tuple<int, string>(field[x][y].Move, field[x][y].Color));
+
+                    if (collection.Count == 4)
+                    {
+                        winCollections.Add(collection.ToList());
+                        collection.Dequeue();
+                    }
+                }
+                else
+                {
+                    collection.Clear();
+                    currColor = string.Empty;
+                }
+
+                return collection.ToList();
+            });
 
             // visualise grid:
             // field.OrderBy(x0 => x0.Key)
@@ -56,124 +86,50 @@ namespace katas.ConnectFour
             //             x2.Value.Letter, "[", x1.Key, ":", x2.Key, "] ", x2.Value.Color[0]))
             //             .ToList()));
 
-            // left->right xMax = 7, yMax = 6
+            // left->right
             for (int y = 0; y < 6; y++)
             {
-                longestSeq = 0;
                 currColor = string.Empty;
-                for (int x = 0; x < 7; x++)
-                    if (field.ContainsKey(x) && field[x].ContainsKey(y))
-                    {
-                        if (currColor != field[x][y].Color)
-                        {
-                            longestSeq = 0;
-                            currColor = field[x][y].Color;
-                        }
-
-                        longestSeq++;
-                        if (longestSeq >= 4)
-                        {
-                            return currColor;
-                        }
-                    }
-                    else
-                    {
-                        longestSeq = 0;
-                        currColor = string.Empty;
-                    }
+                currWinCollection.Clear();
+                for (int x = 0; x < 7; x++) verify(x, y, currWinCollection);
             }
 
             // bottom->top
             for (int x = 0; x < 7; x++)
             {
-                longestSeq = 0;
                 currColor = string.Empty;
-                if (field.ContainsKey(x))
-                {
-                    for (int y = 0; y < 6; y++)
-                        if (field[x].ContainsKey(y))
-                        {
-                            if (currColor != field[x][y].Color)
-                            {
-                                longestSeq = 0;
-                                currColor = field[x][y].Color;
-                            }
-
-                            longestSeq++;
-                            if (longestSeq >= 4) return currColor;
-                        }
-                        else
-                        {
-                            longestSeq = 0;
-                            currColor = string.Empty;
-                        }
-                }
+                currWinCollection.Clear();
+                for (int y = 0; y < 6; y++) verify(x, y, currWinCollection);
             }
 
             // left-top -> right-buttom
-            longestSeq = 0;
-            currColor = string.Empty;
             for (var sx = 0; sx <= 3; sx++)
                 for (var sy = sx == 0 ? 3 : 5; sy <= 5; sy++)
                 {
                     var x = sx;
-                    //for (var x = sx; x <= 6; x++)
-                    for (var y = sy; y >= 0 && x <= 6; x++, y--)
-                    {
-                        if (field.ContainsKey(x))
-                        {
-                            if (field[x].ContainsKey(y))
-                            {
-                                if (currColor != field[x][y].Color)
-                                {
-                                    longestSeq = 0;
-                                    currColor = field[x][y].Color;
-                                }
-
-                                longestSeq++;
-                                if (longestSeq >= 4) return currColor;
-                            }
-                            else
-                            {
-                                longestSeq = 0;
-                                currColor = string.Empty;
-                            }
-                        }
-                    }
+                    currColor = string.Empty;
+                    currWinCollection.Clear();
+                    for (var y = sy; y >= 0 && x <= 6; x++, y--) verify(x, y, currWinCollection);
                 }
 
             // right-top->left-bottom
-            longestSeq = 0;
-            currColor = string.Empty;
             for (var sx = 6; sx >= 3; sx--)
                 for (var sy = sx == 6 ? 3 : 5; sy <= 5; sy++)
                 {
                     var x = sx;
-                    for (var y = sy; y >= 0 && x >= 0; x--, y--)
-                    {
-                        if (field.ContainsKey(x))
-                        {
-                            if (field[x].ContainsKey(y))
-                            {
-                                if (currColor != field[x][y].Color)
-                                {
-                                    longestSeq = 0;
-                                    currColor = field[x][y].Color;
-                                }
-
-                                longestSeq++;
-                                if (longestSeq >= 4) return currColor;
-                            }
-                            else
-                            {
-                                longestSeq = 0;
-                                currColor = string.Empty;
-                            }
-                        }
-                    }
+                    currColor = string.Empty;
+                    currWinCollection.Clear();
+                    for (var y = sy; y >= 0 && x >= 0; x--, y--) verify(x, y, currWinCollection);
                 }
 
-            return string.Empty;
+            var result = winCollections.Select(x =>
+                new
+                {
+                    MaxMove = x.Max(y => y.Item1),
+                    Color = x.FirstOrDefault().Item2
+                }).OrderBy(x => x.MaxMove);
+
+            return result.Any() ? result.FirstOrDefault().Color : string.Empty;
         }
     }
 }
