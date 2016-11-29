@@ -58,6 +58,8 @@
     <Compile Include="PascalTriangle\Kata.cs" />
     <Compile Include="ReversePolish\Calc.cs" />
     <Compile Include="ReversePolish\CalcTest.cs" />
+    <Compile Include="RomanNumeralsDecoder\RomanDecode.cs" />
+    <Compile Include="RomanNumeralsDecoder\RomanDecodeTests.cs" />
     <Compile Include="Scramblies\ScrambliesTests.cs" />
     <Compile Include="Scramblies\Scramblies.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
