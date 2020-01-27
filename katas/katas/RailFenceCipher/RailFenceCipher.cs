@@ -1,4 +1,5 @@
-﻿// Create two functions to encode and then decode a string using the Rail Fence Cipher.This cipher is used to encode a string by placing each character successively in a diagonal along a set of "rails". First start off moving diagonally and down.When you reach the bottom, reverse direction and move diagonally and up until you reach the top rail.Continue until you reach the end of the string. Each "rail" is then read left to right to derive the encoded string.
+﻿// https://www.codewars.com/kata/58c5577d61aefcf3ff000081
+// Create two functions to encode and then decode a string using the Rail Fence Cipher.This cipher is used to encode a string by placing each character successively in a diagonal along a set of "rails". First start off moving diagonally and down.When you reach the bottom, reverse direction and move diagonally and up until you reach the top rail.Continue until you reach the end of the string. Each "rail" is then read left to right to derive the encoded string.
 
 // For example, the string "WEAREDISCOVEREDFLEEATONCE" could be represented in a three rail system as follows: 
 // W E       C R       L T       E
@@ -22,16 +23,11 @@ namespace katas.RailFenceCipher
     {
         internal static string Encode(string s, int n)
         {
-            var firstRailLength = s.Length / n - 1;
-            var nRailLength = firstRailLength - 1;
-            var iRailLength = firstRailLength + nRailLength - 1;
-
             var dict = new Dictionary<double, List<char>>();
-            var result = new StringBuilder();
 
             double A = ((double)n - 1) / 2;
-            double B = (n - 1) * 2; 
-            double C = n % 2 == 0 ? 1.5 : 1; // shift 0.5 to match "middle" with number
+            double B = (n - 1) * 2;
+            double C = n % 2 == 0 ? 1.5 : 1; // shift +0.5 to match "middle" with number in case of odd N
             double D = A;                    // we put our graph on x-axis
 
             for (int i = 0; i < s.Length; i++)
@@ -50,7 +46,25 @@ namespace katas.RailFenceCipher
 
         internal static string Decode(string s, int n)
         {
-            throw new NotImplementedException();
+            var dict = new Dictionary<double, List<char>>();
+
+            double A = ((double)n - 1) / 2;
+            double B = (n - 1) * 2;
+            double C = n % 2 == 0 ? 1.5 : 1; // shift +0.5 to match "middle" with number in case of odd N
+            double D = A;                    // we put our graph on x-axis
+
+            for (int i = 0; i < n; i++)
+            {
+                var originalIndex = Math.Round(B * Math.Asin(( - D) / A) / (2 * Math.PI) + 2 * Math.PI * C);
+                if (!dict.ContainsKey(originalIndex))
+                {
+                    dict[originalIndex] = new List<char>();
+                }
+
+                dict[originalIndex].Add(s[i]);
+            }
+
+            return new string(dict.OrderBy(x => x.Key).SelectMany(x => x.Value).ToArray());
         }
     }
 }
