@@ -26,8 +26,6 @@ namespace katas.CeasarCipher
         [Test]
         public void DecryptionTest()
         {
-            var str = "... tread, Walk the deck my Captain lies, Fallen cold and dead. ";
-
         }        
     }
 }

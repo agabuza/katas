@@ -23,8 +23,6 @@ namespace katas.ConnectFour
 
         public static string WhoIsWinner(List<string> piecesPositionList)
         {
-            var longestSeq = 0;
-
             var winCollections = new List<List<Tuple<int, string>>>();
 
             var field = piecesPositionList
