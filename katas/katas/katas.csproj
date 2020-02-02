@@ -57,8 +57,11 @@
     <Compile Include="ConnectFour\ConnectFour.cs" />
     <Compile Include="DecimalToFactorial\Dec2Fact.cs" />
     <Compile Include="DecimalToFactorial\Dec2FactTests.cs" />
+    <Compile Include="FunWithTrees\ArrayToTreeKata.cs" />
+    <Compile Include="FunWithTrees\ArrayToTreeTests.cs" />
     <Compile Include="FunWithTrees\MaxSum.cs" />
     <Compile Include="FunWithTrees\MaxSumTests.cs" />
+    <Compile Include="FunWithTrees\TreeNode.cs" />
     <Compile Include="NextBiggerNumber\NextBiggerNumberTests.cs" />
     <Compile Include="NextBiggerNumber\Kata.cs" />
     <Compile Include="PascalTriangle\PascalsTriangleTests.cs" />
