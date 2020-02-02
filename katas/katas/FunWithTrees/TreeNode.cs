@@ -10,6 +10,10 @@
         {
             this.value = value;
         }
+        public TreeNode()
+        {
+            this.value = 0;
+        }
 
         public TreeNode(int value, TreeNode left, TreeNode right) 
             : this(value)
@@ -34,6 +38,50 @@
             this.right = new TreeNode(right);
 
             return this;
+        }
+
+        internal static TreeNode Leaf()
+        {
+            return new TreeNode();
+        }
+        
+        internal static TreeNode Join(TreeNode left, TreeNode right)
+        {
+            return new TreeNode().WithChildren(left, right);
+        }
+        
+        internal TreeNode WithLeft(TreeNode left)
+        {
+            this.left = left;
+            return this;
+        }
+        
+        internal TreeNode WithRight(TreeNode right)
+        {
+            this.right = right;
+            return this;
+        }
+        
+        internal TreeNode WithChildren(TreeNode left, TreeNode right)
+        {
+            this.left = left;
+            this.right = right;
+            return this;
+        }
+        
+        internal TreeNode WithLeftLeaf()
+        {
+            return WithLeft(Leaf());
+        }
+        
+        internal TreeNode WithRightLeaf()
+        {
+            return WithRight(Leaf());
+        }
+        
+        internal TreeNode WithLeaves()
+        {
+            return WithChildren(Leaf(), Leaf());
         }
     }
 }
