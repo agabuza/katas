@@ -64,6 +64,8 @@
     <Compile Include="FunWithTrees\MaxSum.cs" />
     <Compile Include="FunWithTrees\MaxSumTests.cs" />
     <Compile Include="FunWithTrees\TreeNode.cs" />
+    <Compile Include="MatrixMultiply\MatrixMultiplicationTests.cs" />
+    <Compile Include="MatrixMultiply\MatrixMutliplication.cs" />
     <Compile Include="NextBiggerNumber\NextBiggerNumberTests.cs" />
     <Compile Include="NextBiggerNumber\Kata.cs" />
     <Compile Include="PascalTriangle\PascalsTriangleTests.cs" />
@@ -92,6 +94,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Big2\" />
     <Folder Include="NewFolder1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -22,6 +22,10 @@ namespace katas.DecimalToFactorial
                     result = rem + result;
                 }
 
+                var a = new int[4,5];
+
+                
+
                 nb = nb / i;
             }
 
