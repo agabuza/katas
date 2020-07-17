@@ -70,6 +70,8 @@
     <Compile Include="NextBiggerNumber\Kata.cs" />
     <Compile Include="PascalTriangle\PascalsTriangleTests.cs" />
     <Compile Include="PascalTriangle\Kata.cs" />
+    <Compile Include="PrimeStreaming\PrimeStream.cs" />
+    <Compile Include="PrimeStreaming\PrimeStreamTest.cs" />
     <Compile Include="RailFenceCipher\RailFenceCipher.cs" />
     <Compile Include="RailFenceCipher\RailFenceCipherTests.cs" />
     <Compile Include="ReversePolish\Calc.cs" />
@@ -93,10 +95,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Big2\" />
-    <Folder Include="NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
