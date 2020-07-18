@@ -55,6 +55,8 @@
     <Compile Include="ClickbaitMatrixshift\MatrixshiftTests.cs" />
     <Compile Include="ConnectFour\MyTestConnectFour.cs" />
     <Compile Include="ConnectFour\ConnectFour.cs" />
+    <Compile Include="ConwayLife\ConwayLife.cs" />
+    <Compile Include="ConwayLife\ConwayLifeTests.cs" />
     <Compile Include="DecimalToFactorial\Dec2Fact.cs" />
     <Compile Include="DecimalToFactorial\Dec2FactTests.cs" />
     <Compile Include="FunWithTrees\ArrayToTreeKata.cs" />
@@ -83,6 +85,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringsMix\Mixing.cs" />
     <Compile Include="StringsMix\MixingTests.cs" />
+    <Compile Include="StripComments\StripCommnetsKata.cs" />
+    <Compile Include="StripComments\StripCommentsTests.cs" />
     <Compile Include="SumStrings\Kata.cs" />
     <Compile Include="SumStrings\Test.cs" />
     <Compile Include="TimeFormat\TimeFormat.cs" />

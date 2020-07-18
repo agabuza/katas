@@ -31,7 +31,7 @@ namespace katas.PrimeStreaming
 
         private void Test(int skip, int limit, params int[] expect)
         {
-            int[] found = Primes.Stream().Skip(skip).Take(limit).ToArray();
+            int[] found = PrimeStream.Stream().Skip(skip).Take(limit).ToArray();
             Assert.AreEqual(expect, found);
         }
     }
