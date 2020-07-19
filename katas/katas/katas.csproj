@@ -39,6 +39,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -87,6 +90,8 @@
     <Compile Include="StringsMix\MixingTests.cs" />
     <Compile Include="StripComments\StripCommnetsKata.cs" />
     <Compile Include="StripComments\StripCommentsTests.cs" />
+    <Compile Include="SumIntervals\SumIntervals.cs" />
+    <Compile Include="SumIntervals\SumIntervalsTests.cs" />
     <Compile Include="SumStrings\Kata.cs" />
     <Compile Include="SumStrings\Test.cs" />
     <Compile Include="TimeFormat\TimeFormat.cs" />

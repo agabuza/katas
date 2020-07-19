@@ -15,7 +15,7 @@ namespace katas.ConwayLife
             while (gen < generation)
             {
                 gen++;
-                var newGeneration = new int[cells.GetLength(0) + 2, cells.GetLength(1) + 2];
+                var newGeneration = new int[previousGen.GetLength(0) + 2, previousGen.GetLength(1) + 2];
 
                 for (int col = 0; col < newGeneration.GetLength(0); col++)
                     for (int row = 0; row < newGeneration.GetLength(1); row++)
@@ -24,9 +24,9 @@ namespace katas.ConwayLife
                     };
 
                 previousGen = newGeneration.Clone() as int[,];
+                Print2DArray(previousGen);
             }
 
-            Print2DArray(previousGen);
             return TrimZeroes(previousGen);
         }
 
@@ -49,6 +49,8 @@ namespace katas.ConwayLife
                     }
                 }
 
+            if (left > right || top > bottom) return new int[0, 0];
+
             var colLength = right - left + 1;
             var rowLenght = bottom - top + 1;
 
@@ -59,8 +61,6 @@ namespace katas.ConwayLife
                 {
                     trimmedArray[col, row] = matrix[col + left, row + top];
                 }
-
-            Print2DArray(trimmedArray);
 
             return trimmedArray;
         }
