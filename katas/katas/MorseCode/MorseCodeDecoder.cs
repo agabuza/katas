@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
+/// <summary>
+/// https://www.codewars.com/kata/54b72c16cd7f5154e9000457/
+/// </summary>
 namespace katas.MorseCode
 {
     public class MorseCodeDecoder
@@ -75,10 +77,9 @@ namespace katas.MorseCode
 
             var index = 0;
             string morse = string.Empty;
-            var currentBit = ' ';
             while (index < bits.Length)
             {
-                currentBit = bits[index];
+                char currentBit = bits[index];
                 var length = 1;
 
                 while ((index < bits.Length - 1) && bits[++index] == currentBit) length++;
@@ -94,6 +95,8 @@ namespace katas.MorseCode
                         morse += lengthInTimeUnits == 3 ? " " : lengthInTimeUnits == 7 ? "   " : "";
                         break;
                 }
+
+                if (index == bits.Length - 1) break;
             }
 
             return morse;
