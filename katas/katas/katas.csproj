@@ -62,6 +62,8 @@
     <Compile Include="ConwayLife\ConwayLifeTests.cs" />
     <Compile Include="DecimalToFactorial\Dec2Fact.cs" />
     <Compile Include="DecimalToFactorial\Dec2FactTests.cs" />
+    <Compile Include="EulersODE\EulerOde.cs" />
+    <Compile Include="EulersODE\EulerOdeTests.cs" />
     <Compile Include="FunWithTrees\ArrayToTreeKata.cs" />
     <Compile Include="FunWithTrees\ArrayToTreeTests.cs" />
     <Compile Include="FunWithTrees\PerfectTree.cs" />
@@ -79,6 +81,8 @@
     <Compile Include="PrimeStreaming\PrimeStreamTest.cs" />
     <Compile Include="RailFenceCipher\RailFenceCipher.cs" />
     <Compile Include="RailFenceCipher\RailFenceCipherTests.cs" />
+    <Compile Include="RangeExtension\RangeExtension.cs" />
+    <Compile Include="RangeExtension\RangeExtensionTests.cs" />
     <Compile Include="ReversePolish\Calc.cs" />
     <Compile Include="ReversePolish\CalcTest.cs" />
     <Compile Include="RomanNumeralsDecoder\RomanDecode.cs" />
