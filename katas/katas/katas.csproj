@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BalancedParetheses\Balanced.cs" />
+    <Compile Include="BalancedParetheses\BalancedTests.cs" />
     <Compile Include="CarMileageNumbers\Test.cs" />
     <Compile Include="CarMileageNumbers\Kata.cs" />
     <Compile Include="CeasarCipher\CaesarCipherTests.cs" />
