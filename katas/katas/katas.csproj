@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\NUnit3TestAdapter.3.17.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.17.0\build\net35\NUnit3TestAdapter.props')" />
+  <Import Project="..\packages\NUnit3TestAdapter.3.16.1\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.16.1\build\net35\NUnit3TestAdapter.props')" />
   <Import Project="..\packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -39,6 +39,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,18 +54,31 @@
     <Compile Include="CarMileageNumbers\Kata.cs" />
     <Compile Include="CeasarCipher\CaesarCipherTests.cs" />
     <Compile Include="CeasarCipher\CaesarCipher.cs" />
+    <Compile Include="ClickbaitMatrixshift\MatrixShift.cs" />
+    <Compile Include="ClickbaitMatrixshift\MatrixshiftTests.cs" />
     <Compile Include="ConnectFour\MyTestConnectFour.cs" />
     <Compile Include="ConnectFour\ConnectFour.cs" />
+    <Compile Include="ConwayLife\ConwayLife.cs" />
+    <Compile Include="ConwayLife\ConwayLifeTests.cs" />
     <Compile Include="DecimalToFactorial\Dec2Fact.cs" />
     <Compile Include="DecimalToFactorial\Dec2FactTests.cs" />
-    <Compile Include="EulersODE\EulerOde.cs" />
-    <Compile Include="EulersODE\EulerOdeTests.cs" />
+    <Compile Include="FunWithTrees\ArrayToTreeKata.cs" />
+    <Compile Include="FunWithTrees\ArrayToTreeTests.cs" />
+    <Compile Include="FunWithTrees\PerfectTree.cs" />
+    <Compile Include="FunWithTrees\PerfectTreeTest.cs" />
+    <Compile Include="FunWithTrees\MaxSum.cs" />
+    <Compile Include="FunWithTrees\MaxSumTests.cs" />
+    <Compile Include="FunWithTrees\TreeNode.cs" />
+    <Compile Include="MatrixMultiply\MatrixMultiplicationTests.cs" />
+    <Compile Include="MatrixMultiply\MatrixMutliplication.cs" />
     <Compile Include="NextBiggerNumber\NextBiggerNumberTests.cs" />
     <Compile Include="NextBiggerNumber\Kata.cs" />
     <Compile Include="PascalTriangle\PascalsTriangleTests.cs" />
     <Compile Include="PascalTriangle\Kata.cs" />
-    <Compile Include="RangeExtension\RangeExtension.cs" />
-    <Compile Include="RangeExtension\RangeExtensionTests.cs" />
+    <Compile Include="PrimeStreaming\PrimeStream.cs" />
+    <Compile Include="PrimeStreaming\PrimeStreamTest.cs" />
+    <Compile Include="RailFenceCipher\RailFenceCipher.cs" />
+    <Compile Include="RailFenceCipher\RailFenceCipherTests.cs" />
     <Compile Include="ReversePolish\Calc.cs" />
     <Compile Include="ReversePolish\CalcTest.cs" />
     <Compile Include="RomanNumeralsDecoder\RomanDecode.cs" />
@@ -72,23 +88,30 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringsMix\Mixing.cs" />
     <Compile Include="StringsMix\MixingTests.cs" />
+    <Compile Include="StripComments\StripCommnetsKata.cs" />
+    <Compile Include="StripComments\StripCommentsTests.cs" />
+    <Compile Include="SumIntervals\SumIntervals.cs" />
+    <Compile Include="SumIntervals\SumIntervalsTests.cs" />
     <Compile Include="SumStrings\Kata.cs" />
     <Compile Include="SumStrings\Test.cs" />
     <Compile Include="TimeFormat\TimeFormat.cs" />
     <Compile Include="TimeFormat\HumanReadableTimeTest.cs" />
+    <Compile Include="TrailingZeroes\TrailingZeroes.cs" />
+    <Compile Include="TrailingZeroes\TrailingZeroesTests.cs" />
     <Compile Include="UnknownDigit\RunesTest.cs" />
     <Compile Include="UnknownDigit\Runes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.12.0\build\NUnit.props'))" />
-    <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.17.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.17.0\build\net35\NUnit3TestAdapter.props'))" />
+    <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.16.1\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.16.1\build\net35\NUnit3TestAdapter.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
