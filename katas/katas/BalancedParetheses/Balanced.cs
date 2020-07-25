@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 /// <summary>
 /// https://www.codewars.com/kata/5426d7a2c2c7784365000783
@@ -9,22 +10,41 @@ namespace katas.BalancedParetheses
     {
         public static List<string> BalancedParens(int n)
         {
-            // your code here
-            return null;
+            var allPossibleCombinations = GenerateParentheses("", 0, 0, n);
+            return allPossibleCombinations.Distinct().OrderBy(x => x).ToList();
         }
 
-        public static bool IsBalanced(string text)
+        public static IEnumerable<string> GenerateParentheses(string text, int openCount, int closedCount, int n)
         {
-            int pairs = 0;
-            foreach(var c in text)
-            {
-                if (c == '(') pairs++;
-                else if (c == ')') pairs--;
+            if (openCount > n || closedCount > n) yield break;
+            if (closedCount == n && openCount == n) yield return text;
 
-                if (pairs < 0) return false;
+            if (openCount == closedCount)
+            {
+                foreach (var balanced in GenerateParentheses(text + "(", openCount + 1, closedCount, n))
+                    yield return balanced;
+
+                yield break;
             }
 
-            return pairs == 0;
+            if (openCount == n)
+            {
+                foreach (var balanced in GenerateParentheses(text + ")", openCount, closedCount + 1, n))
+                    yield return balanced;
+
+                yield break;
+            }
+
+            foreach (var balanced in GenerateParentheses(text + "(", openCount + 1, closedCount, n))
+            {
+                yield return balanced;
+            }
+
+            foreach (var balanced in GenerateParentheses(text + ")", openCount, closedCount + 1, n))
+            {
+                yield return balanced;
+            }
         }
+
     }
 }

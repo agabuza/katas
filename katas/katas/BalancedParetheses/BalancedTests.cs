@@ -1,32 +1,21 @@
 ﻿using NUnit.Framework;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace katas.BalancedParetheses
 {
     public class BalancedTests
     {
-        [Test]
-        public void TestExample()
+        [TestCase(0, "")]
+        [TestCase(1, "()")]
+        [TestCase(2, "(()),()()")]
+        [TestCase(3, "((())),(()()),(())(),()(()),()()()")]
+        [TestCase(4, "(((()))),((()())),((())()),((()))(),(()(())),(()()()),(()())(),(())(()),(())()(),()((())),()(()()),()(())(),()()(()),()()()()")]
+        public void TestExample(int numberOfPairs, string expectedResult)
         {
-            var warriorsList = new List<string>();
-            //test for n = 0
-            warriorsList = Balanced.BalancedParens(0);
-            Assert.AreEqual(new List<string> { "" }, warriorsList);
-            //test for n = 1
-            warriorsList = Balanced.BalancedParens(1);
-            Assert.AreEqual(new List<string> { "()" }, warriorsList);
-            //test for n = 2
-            warriorsList = Balanced.BalancedParens(2);
-            warriorsList.Sort();
-            Assert.AreEqual(new List<string> { "(())", "()()" }, warriorsList);
-            //test for n = 3
-            warriorsList = Balanced.BalancedParens(3);
-            warriorsList.Sort();
-            Assert.AreEqual(new List<string> { "((()))", "(()())", "(())()", "()(())", "()()()" }, warriorsList);
-            //test for n = 4
-            warriorsList = Balanced.BalancedParens(4);
-            warriorsList.Sort();
-            Assert.AreEqual(new List<string> { "(((())))", "((()()))", "((())())", "((()))()", "(()(()))", "(()()())", "(()())()", "(())(())", "(())()()", "()((()))", "()(()())", "()(())()", "()()(())", "()()()()" }, warriorsList);
+            var result = new List<string>();
+            result = Balanced.BalancedParens(numberOfPairs);
+            Assert.AreEqual(expectedResult, string.Join(",", result));
         }
     }
 }
