@@ -102,6 +102,8 @@
     <Compile Include="StripComments\StripCommentsTests.cs" />
     <Compile Include="SumIntervals\SumIntervals.cs" />
     <Compile Include="SumIntervals\SumIntervalsTests.cs" />
+    <Compile Include="SumOfDivided\SumByFactors.cs" />
+    <Compile Include="SumOfDivided\SumByFactorsTests.cs" />
     <Compile Include="SumStrings\Kata.cs" />
     <Compile Include="SumStrings\Test.cs" />
     <Compile Include="TimeFormat\TimeFormat.cs" />
