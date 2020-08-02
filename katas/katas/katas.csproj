@@ -52,6 +52,10 @@
   <ItemGroup>
     <Compile Include="BalancedParetheses\Balanced.cs" />
     <Compile Include="BalancedParetheses\BalancedTests.cs" />
+    <Compile Include="BirdMountainRiver\BirdMountainRiver.cs" />
+    <Compile Include="BirdMountainRiver\BirdMountainRiverTests.cs" />
+    <Compile Include="BirdMountain\BirdMountain.cs" />
+    <Compile Include="BirdMountain\BirdMountainTests.cs" />
     <Compile Include="CarMileageNumbers\Test.cs" />
     <Compile Include="CarMileageNumbers\Kata.cs" />
     <Compile Include="CeasarCipher\CaesarCipherTests.cs" />
@@ -110,6 +114,7 @@
     <Compile Include="TrailingZeroes\TrailingZeroesTests.cs" />
     <Compile Include="UnknownDigit\RunesTest.cs" />
     <Compile Include="UnknownDigit\Runes.cs" />
+    <Compile Include="Utils\ArrayUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

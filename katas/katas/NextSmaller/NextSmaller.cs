@@ -35,9 +35,10 @@ namespace katas.NextSmaller
 
                     var firstPart = digits.Take(i + 1).ToArray();
 
-                    if (firstPart[0] == '0') return -1;
-
-                    var secondPart = digits.Skip(i + 1).Take(n.ToString().Length - i - 1).OrderByDescending(x => x).ToArray();
+                    var secondPart = digits.Skip(i + 1)
+                            .Take(n.ToString().Length - i - 1)
+                            .OrderByDescending(x => x)
+                            .ToArray();
 
                     return long.Parse(new string(firstPart) + new string(secondPart));
                 }
