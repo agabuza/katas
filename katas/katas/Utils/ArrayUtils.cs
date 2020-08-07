@@ -15,5 +15,17 @@ namespace katas.Utils
                 Debug.WriteLine("");
             }
         }
+
+        public static void Print2DArray<T>(T[][] matrix)
+        {
+            for (int i = 0; i < matrix.Length; i++)
+            {
+                for (int j = 0; j < matrix[0].Length; j++)
+                {
+                    Debug.Write(matrix[i][j] + "\t");
+                }
+                Debug.WriteLine("");
+            }
+        }
     }
 }

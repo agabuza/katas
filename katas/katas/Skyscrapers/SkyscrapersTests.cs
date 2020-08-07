@@ -34,6 +34,7 @@ namespace katas.Skyscrapers
                                   new []{1, 3, 2, 4}};
 
             var actual = Skyscrapers.SolvePuzzle(clues);
+            Utils.ArrayUtils.Print2DArray(actual);
             CollectionAssert.AreEqual(expected, actual);
         }
     }
