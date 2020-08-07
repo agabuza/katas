@@ -29,9 +29,9 @@ namespace katas.Skyscrapers
                                        0, 1, 0, 0};
 
             var expected = new[]{ new []{2, 1, 4, 3},
-                               new []{3, 4, 1, 2},
-                               new []{4, 2, 3, 1},
-                               new []{1, 3, 2, 4}};
+                                  new []{3, 4, 1, 2},
+                                  new []{4, 2, 3, 1},
+                                  new []{1, 3, 2, 4}};
 
             var actual = Skyscrapers.SolvePuzzle(clues);
             CollectionAssert.AreEqual(expected, actual);
