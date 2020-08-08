@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace katas.Skyscrapers
@@ -15,12 +13,12 @@ namespace katas.Skyscrapers
             foreach (var combination in matrixCombinations)
             {
 
-                var vertical0 = combination[0];
-                var vertical1 = combination[1];
-                var vertical2 = combination[2];
-                var vertical3 = combination[3];
+                var hrz0 = combination[0];
+                var hrz1 = combination[1];
+                var hrz2 = combination[2];
+                var hrz3 = combination[3];
 
-                var horizontal = new List<List<int>>();
+                var vert = new List<List<int>>();
 
                 for (int i = 0; i < combination.Count; i++)
                 {
@@ -29,46 +27,46 @@ namespace katas.Skyscrapers
                     {
                         newLine.Add(combination[j][i]);
                     }
-                    horizontal.Add(newLine);
+                    vert.Add(newLine);
                 }
 
-                var horizontal0Rev = new List<int>(horizontal[0]);
-                var horizontal1Rev = new List<int>(horizontal[1]);
-                var horizontal2Rev = new List<int>(horizontal[2]);
-                var horizontal3Rev = new List<int>(horizontal[3]);
+                var vert0Rev = new List<int>(vert[0]);
+                var vert1Rev = new List<int>(vert[1]);
+                var vert2Rev = new List<int>(vert[2]);
+                var vert3Rev = new List<int>(vert[3]);
 
-                horizontal0Rev.Reverse();
-                horizontal1Rev.Reverse();
-                horizontal2Rev.Reverse();
-                horizontal3Rev.Reverse();
+                vert0Rev.Reverse();
+                vert1Rev.Reverse();
+                vert2Rev.Reverse();
+                vert3Rev.Reverse();
 
-                var vertical0Rev = new List<int>(vertical0);
-                var vertical1Rev = new List<int>(vertical1);
-                var vertical2Rev = new List<int>(vertical2);
-                var vertical3Rev = new List<int>(vertical3);
+                var hrz0Rev = new List<int>(hrz0);
+                var hrz1Rev = new List<int>(hrz1);
+                var hrz2Rev = new List<int>(hrz2);
+                var hrz3Rev = new List<int>(hrz3);
 
-                vertical0Rev.Reverse();
-                vertical1Rev.Reverse();
-                vertical2Rev.Reverse();
-                vertical3Rev.Reverse();
+                hrz0Rev.Reverse();
+                hrz1Rev.Reverse();
+                hrz2Rev.Reverse();
+                hrz3Rev.Reverse();
 
                 var slices = new List<List<int>> {
-                    vertical0,
-                    vertical1,
-                    vertical2,
-                    vertical3,
-                    horizontal0Rev,
-                    horizontal1Rev,
-                    horizontal2Rev,
-                    horizontal3Rev,
-                    vertical3Rev,
-                    vertical2Rev,
-                    vertical1Rev,
-                    vertical0Rev,
-                    horizontal[3],
-                    horizontal[2],
-                    horizontal[1],
-                    horizontal[0]
+                    vert[0],
+                    vert[1],
+                    vert[2],
+                    vert[3],
+                    hrz0Rev,
+                    hrz1Rev,
+                    hrz2Rev,
+                    hrz3Rev,
+                    vert3Rev,
+                    vert2Rev,
+                    vert1Rev,
+                    vert0Rev,
+                    hrz3,
+                    hrz2,
+                    hrz1,
+                    hrz0
                 };
 
                 var isCorrect = slices.All(x => x.Count == x.Distinct().Count()) 
