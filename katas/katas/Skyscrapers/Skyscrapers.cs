@@ -8,7 +8,7 @@ namespace katas.Skyscrapers
         internal static int[][] SolvePuzzle(int[] clues)
         {
             var combinations = GetAllCombinations(new List<int> { 1, 2, 3, 4 }, 4).ToList();
-            var matrixCombinations = GetAllCombinations(combinations, 4).ToList();
+            var matrixCombinations = GetAllCombinations(combinations, 4);
 
             foreach (var combination in matrixCombinations)
             {
