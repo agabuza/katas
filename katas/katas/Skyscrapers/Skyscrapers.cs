@@ -12,7 +12,6 @@ namespace katas.Skyscrapers
 
             foreach (var combination in matrixCombinations)
             {
-
                 var hrz0 = combination[0];
                 var hrz1 = combination[1];
                 var hrz2 = combination[2];
