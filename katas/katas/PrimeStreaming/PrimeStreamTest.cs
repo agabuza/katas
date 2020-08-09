@@ -29,6 +29,12 @@ namespace katas.PrimeStreaming
             Test(1000, 10, 7927, 7933, 7937, 7949, 7951, 7963, 7993, 8009, 8011, 8017);
         }
 
+        [Test]
+        public void Test_Million()
+        {
+            Test(0, 1000000, 0, 0, 0);
+        }
+
         private void Test(int skip, int limit, params int[] expect)
         {
             int[] found = PrimeStream.Stream().Skip(skip).Take(limit).ToArray();

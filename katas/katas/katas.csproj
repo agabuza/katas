@@ -66,6 +66,8 @@
     <Compile Include="ConnectFour\ConnectFour.cs" />
     <Compile Include="ConwayLife\ConwayLife.cs" />
     <Compile Include="ConwayLife\ConwayLifeTests.cs" />
+    <Compile Include="CountingChange\CountingChange.cs" />
+    <Compile Include="CountingChange\CountingChangeTests.cs" />
     <Compile Include="DecimalToFactorial\Dec2Fact.cs" />
     <Compile Include="DecimalToFactorial\Dec2FactTests.cs" />
     <Compile Include="EulersODE\EulerOde.cs" />

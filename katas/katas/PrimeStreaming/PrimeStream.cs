@@ -11,7 +11,7 @@ namespace katas.PrimeStreaming
             var number = 2;
             while (true)
             {
-                if (primes.All(p => number % p != 0))
+                if (!primes.Any(p => number % p == 0))
                 {
                     primes.Add(number);
                     yield return number;
