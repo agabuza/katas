@@ -95,6 +95,8 @@
     <Compile Include="PascalTriangle\Kata.cs" />
     <Compile Include="PrimeStreaming\PrimeStream.cs" />
     <Compile Include="PrimeStreaming\PrimeStreamTest.cs" />
+    <Compile Include="ProperFractions\ProperFractionsSolution.cs" />
+    <Compile Include="ProperFractions\ProperFractionsSolutionTests.cs" />
     <Compile Include="RailFenceCipher\RailFenceCipher.cs" />
     <Compile Include="RailFenceCipher\RailFenceCipherTests.cs" />
     <Compile Include="RangeExtension\RangeExtension.cs" />
