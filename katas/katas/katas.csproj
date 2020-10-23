@@ -81,12 +81,16 @@
     <Compile Include="FunWithTrees\TreeNode.cs" />
     <Compile Include="MatrixMultiply\MatrixMultiplicationTests.cs" />
     <Compile Include="MatrixMultiply\MatrixMutliplication.cs" />
+    <Compile Include="MaxSubarray\MaxSubArray.cs" />
+    <Compile Include="MaxSubarray\MaxSubArrayTests.cs" />
     <Compile Include="MorseCode\MorseCodeDecoder.cs" />
     <Compile Include="MorseCode\MorseCodeDecoderTest.cs" />
     <Compile Include="NextBiggerNumber\NextBiggerNumberTests.cs" />
     <Compile Include="NextBiggerNumber\Kata.cs" />
     <Compile Include="NextSmaller\NextSmaller.cs" />
     <Compile Include="NextSmaller\NextSmallerTests.cs" />
+    <Compile Include="ParseIntReload\Parser.cs" />
+    <Compile Include="ParseIntReload\ParserTests.cs" />
     <Compile Include="PascalTriangle\PascalsTriangleTests.cs" />
     <Compile Include="PascalTriangle\Kata.cs" />
     <Compile Include="PrimeStreaming\PrimeStream.cs" />
