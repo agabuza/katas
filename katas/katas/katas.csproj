@@ -89,6 +89,8 @@
     <Compile Include="NextBiggerNumber\Kata.cs" />
     <Compile Include="NextSmaller\NextSmaller.cs" />
     <Compile Include="NextSmaller\NextSmallerTests.cs" />
+    <Compile Include="NutFarm\NutFarm.cs" />
+    <Compile Include="NutFarm\NutFarmTests.cs" />
     <Compile Include="ParseIntReload\Parser.cs" />
     <Compile Include="ParseIntReload\ParserTests.cs" />
     <Compile Include="PascalTriangle\PascalsTriangleTests.cs" />
