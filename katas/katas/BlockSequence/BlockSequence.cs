@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Linq;
+using System.Text;
 
 namespace katas.BlockSequence
 {
@@ -29,15 +30,27 @@ namespace katas.BlockSequence
                 currentLength += numLength;
             }
 
-            var sq = new StringBuilder();
-            while(sq.Length <= currentLength && sqNum > 0)
+            long pos = 0;
+            long num = 0;
+            zeroCount = 10;
+            newZero = 0;
+            while(pos < targetPos)
             {
-                sq.Insert(0, sqNum);
-                sqNum--;
+                num++;
+
+                if (num >= zeroCount)
+                {
+                    newZero++;
+                    zeroCount *= 10;
+                }
+
+                pos += newZero + 1;
             }
 
-            var res = sq[(int)(targetPos - 1)] - '0';
-            return res;
+            var numStr = num.ToString();
+            var finalChar = numStr[(int)(numStr.Length - (pos - targetPos) - 1)];
+
+            return finalChar - '0';
         }
     }
 }
