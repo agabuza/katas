@@ -72,6 +72,8 @@
     <Compile Include="CountingChange\CountingChangeTests.cs" />
     <Compile Include="DecimalToFactorial\Dec2Fact.cs" />
     <Compile Include="DecimalToFactorial\Dec2FactTests.cs" />
+    <Compile Include="DoubleLinear\DoubleLinear.cs" />
+    <Compile Include="DoubleLinear\DoubleLinearTests.cs" />
     <Compile Include="EulersODE\EulerOde.cs" />
     <Compile Include="EulersODE\EulerOdeTests.cs" />
     <Compile Include="FunWithTrees\ArrayToTreeKata.cs" />
@@ -97,6 +99,8 @@
     <Compile Include="ParseIntReload\ParserTests.cs" />
     <Compile Include="PascalTriangle\PascalsTriangleTests.cs" />
     <Compile Include="PascalTriangle\Kata.cs" />
+    <Compile Include="PickPeaks\PickPeaks.cs" />
+    <Compile Include="PickPeaks\PickPeaksTests.cs" />
     <Compile Include="PrimeStreaming\PrimeStream.cs" />
     <Compile Include="PrimeStreaming\PrimeStreamTest.cs" />
     <Compile Include="ProperFractions\ProperFractionsSolution.cs" />

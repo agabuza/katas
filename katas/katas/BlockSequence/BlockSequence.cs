@@ -14,6 +14,7 @@ namespace katas.BlockSequence
             long sqNum = 0;
             long zeroCount = 10;
             var newZero = 0;
+            
             while(totalLength < n)
             {
                 targetPos -= currentLength;
@@ -37,7 +38,6 @@ namespace katas.BlockSequence
             while(pos < targetPos)
             {
                 num++;
-
                 if (num >= zeroCount)
                 {
                     newZero++;
