@@ -110,6 +110,8 @@
     <Compile Include="StringsMix\MixingTests.cs" />
     <Compile Include="StripComments\StripCommnetsKata.cs" />
     <Compile Include="StripComments\StripCommentsTests.cs" />
+    <Compile Include="StrongNumber\Kata.cs" />
+    <Compile Include="StrongNumber\Tests.cs" />
     <Compile Include="SumByFactors\SumOfDivided.cs" />
     <Compile Include="SumByFactors\SumOfDividedTests.cs" />
     <Compile Include="SumIntervals\SumIntervals.cs" />
