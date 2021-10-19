@@ -74,6 +74,8 @@
     <Compile Include="CountingChange\CountingChangeTests.cs" />
     <Compile Include="DecimalToFactorial\Dec2Fact.cs" />
     <Compile Include="DecimalToFactorial\Dec2FactTests.cs" />
+    <Compile Include="DisiriumNumbers\Kata.cs" />
+    <Compile Include="DisiriumNumbers\Tests.cs" />
     <Compile Include="DoubleLinear\DoubleLinear.cs" />
     <Compile Include="DoubleLinear\DoubleLinearTests.cs" />
     <Compile Include="EulersODE\EulerOde.cs" />
