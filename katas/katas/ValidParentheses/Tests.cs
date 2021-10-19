@@ -23,5 +23,11 @@ namespace katas.ValidParentheses
         {
             Assert.AreEqual(false, Kata.ValidParentheses(")(((("));
         }
+
+        [Test]
+        public void SampleTest3()
+        {
+            Assert.AreEqual(true, Kata.ValidParentheses("()()()"));
+        }
     }
 }

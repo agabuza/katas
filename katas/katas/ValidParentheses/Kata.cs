@@ -21,12 +21,12 @@ namespace katas.ValidParentheses
                     stack.Push(currentNode);
                     nodes.Add(currentNode);
                 }
-                else if (input[i] == ')' && stack.Count > 0)
+                else if (input[i] == ')')
                 {
+                    if (stack.Count == 0) return false;
                     currentNode.rightPos = i;
                     currentNode = stack.Pop();
                 }
-                else return false;
             }
 
             return stack.Count == 0;
@@ -36,6 +36,7 @@ namespace katas.ValidParentheses
         {
             public int leftPos { get; set; }
             public int rightPos { get; set; }
+            public string Content { get; set; }
         }
     }
 }
