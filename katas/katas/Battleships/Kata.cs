@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace katas.Battleships
 {
@@ -13,27 +10,20 @@ namespace katas.Battleships
     {
         public static Dictionary<string, double> damagedOrSunk(int[,] board, int[,] attacks)
         {
-            // mark all hits with 2 on the map 
-            // go through the map and seach for -1 or 1           
-            // add to queue and start bfs l, r, t, d 
-            // pop from queue
-            // run
-
             var result = new List<(string, double)>();
-
             var originalBoard = (int[,])board.Clone();
             
             for (int i = 0; i < attacks.GetLength(0); i++)
             {
-                var x = attacks[i, 1] - 1;
                 var y = attacks[i, 0] - 1;
-                if (board[x, y] > 0) board[x, y] = 9;
+                var x = board.GetLength(0) - attacks[i, 1];
+                board[x, y] = 9;
             }
 
             for (int i = 0; i < board.GetLength(0); i++)
                 for (int j = 0; j < board.GetLength(1); j++)
                 {
-                    if (board[i, j] > 0)
+                    if (board[i, j] > 0 && originalBoard[i, j] != 0)
                     {
                         var assessment = InvestigateShip(board, i, j, originalBoard);
                         result.Add((assessment.Item1, assessment.Item2));
@@ -74,8 +64,6 @@ namespace katas.Battleships
                 if (cellX + 1 < board.GetLength(0) && originalboard[cellX + 1, cellY] == originalShipId) queue.Enqueue((cellX + 1, cellY, board[cellX + 1, cellY]));
                 if (cellY + 1 < board.GetLength(1) && originalboard[cellX, cellY + 1] == originalShipId) queue.Enqueue((cellX, cellY + 1, board[cellX, cellY + 1]));
 
-                if (cell.Item3 == 9) points += 0.5;
-
                 if (cell.Item3 != originalState)
                 {
                     stateChanged = true;
@@ -90,9 +78,9 @@ namespace katas.Battleships
 
             if (state == "sunk") points = 1;
             if (state == "notTouched") points = -1;
+            if (state == "damaged") points = 0.5;
 
             return (state, points);
-
         }
     }
 }

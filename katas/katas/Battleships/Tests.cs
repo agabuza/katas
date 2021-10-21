@@ -11,7 +11,7 @@ namespace katas.Battleships
         public void BasicTest1()
         {
             var kata = new Kata();
-            int[,] board = { { 0, 0, 1, 0 },
+            int[,] board = {     { 0, 0, 1, 0 },
                                  { 0, 0, 1, 0 },
                                  { 0, 0, 1, 0 } };
             int[,] attacks = { { 3, 1 }, { 3, 2 }, { 3, 3 } };
@@ -27,7 +27,7 @@ namespace katas.Battleships
         public void BasicTest2()
         {
             var kata = new Kata();
-            int[,] board = { { 3, 0, 1 },
+            int[,] board = {     { 3, 0, 1 },
                                  { 3, 0, 1 },
                                  { 0, 2, 1 },
                                  { 0, 2, 0 } };
